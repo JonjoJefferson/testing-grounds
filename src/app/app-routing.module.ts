@@ -11,14 +11,10 @@ const routes: Routes = [
     path: 'recipes',
     loadChildren: () => import('./recipes/recipes.module').then((m) => m.RecipesPageModule),
   },
-  {
-    path: 'recipe-detail',
-    loadChildren: () => import('./recipes/recipe-detail/recipe-detail.module').then((m) => m.RecipeDetailPageModule),
-  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
